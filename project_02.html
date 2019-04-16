@@ -1,0 +1,58 @@
+<!DOCTYPE html >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>根据函数或表达式筛选元素</title>
+    <style type="text/css">
+        * {
+            font-size: 12px; font-family:"Arial Black";
+        }
+        td.demo {
+            background-color: blue;
+        }
+    </style>
+    <script src="jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var t=0;
+            for(var i=0;i<=5;i++)//行循环
+            {
+               for(var j= 0;j<=5;j++)//列循环
+               {
+                   //alert(t);
+                   $("table td").filter($("tr:nth-child("+i+") td:nth-child("+j+")")).text((t-6));
+                   if((t-6)!=0&&(t+1)%6==0){
+                       $("table td").filter($("tr:nth-child("+i+") td:nth-child("+j+")")).text((t-6)).css("background-color","yellow");
+                   }
+                   if((t-6)!=0&&t%3==0){
+                       $("table td").filter($("tr:nth-child("+i+") td:nth-child("+j+")")).text((t-6)).css({"border":"1px","background-color":"blue"});
+                   }
+//                   else {
+//                       $("table td").filter($("tr:nth-child("+i+") td:nth-child("+j+")")).text((t-6)).css("background-color","red");
+//                   }
+                   t++;
+               }
+                t--;
+            }
+        });
+    </script>
+</head>
+<body>
+<table width="398" align="center" cellpadding="5" cellspacing="5">
+    <tr>
+        <td>&nbsp;</td><td>&nbsp;</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>&nbsp;</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>&nbsp;</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>&nbsp;</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td><td>&nbsp;</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+</table>
+</body>
+</html>
